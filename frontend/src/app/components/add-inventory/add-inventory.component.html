@@ -1,0 +1,63 @@
+<app-main-nav id="nav">
+    <ng-container>
+    <hr>
+    
+    <div class="container p-5">
+      <form [formGroup]="addInventoryForm">
+        <div class="row">
+          <div class="col-25">
+            <label for="merk">Merek Produk</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="merk" name="merk" placeholder="Merek Produk ..."  formControlName="merk" required>
+          </div>
+        </div>
+
+        
+        <div class="row">
+          <div class="col-25">
+            <label for="jenis">Jenis Produk</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="jenis" name="jenis" placeholder="Jenis Produk"  formControlName="jenis">
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-25">
+            <label for="jumlah">Jumlah Stock</label>
+          </div>
+          <div class="col-75">
+            <input type="number" id="jumlah" name="jumlah" placeholder="Masukan Jumlah (Nomor Saja)" min="1"  formControlName="jumlah" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="harga">Harga Produk</label>
+          </div>
+          <div class="col-75">
+            <input type="number" id="harga" name="harga" placeholder="Harga Produk" min="1"  formControlName="harga">
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-25">
+            <label for="keterangan">Keterangan</label>
+          </div>
+          <div class="col-75">
+            <input type="text" id="jenis" name="keterangan" placeholder="Keterangan..."  formControlName="keterangan">
+          </div>
+        </div>
+
+          <br>
+        <div class="row">
+          <button type="submit" (click)="onAddInventory()"> Tambah Barang </button>
+          <br>
+          <br>      
+        </div>
+      </form>
+    </div>
+  </ng-container>
+</app-main-nav>

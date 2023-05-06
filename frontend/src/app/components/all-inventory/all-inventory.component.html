@@ -1,0 +1,50 @@
+<app-main-nav id="nav">
+        <ng-container>
+        <hr>
+        <div class="row">
+            <div class="inputGroup">
+                <input type="text" autocomplete="off" placeholder="Cari disini" [(ngModel)]="searchText">
+                <button class="button-excell" (click)="exportedexcel()">Export ke Excel</button>    
+            </div>
+        </div>
+        <table class="table table-striped" id="product">
+            <thead class="thead-dark">
+                <tr>
+                    <th (click)="sort('id_barang')" scope="col">ID</th>
+                    <th scope="col">Action</th>
+                    <th (click)="sort('merk')" scope="col">Merk Mobil</th>
+                    <th (click)="sort('jenis')" scope="col">Jenis</th>
+                    <th (click)="sort('jumlah')" scope="col">Jumlah</th>
+                    <th (click)="sort('harga')" scope="col">Harga</th>
+                    <th (click)="sort('keterangan')" scope="col">Keterangan</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let barang of listBarang  | filter:searchText">
+                    <td>
+                        {{barang.id}}
+                    </td>
+                    <td id="button-table" scope="row"> 
+                        <button type="button" [routerLink]="['edit', barang.id]">Edit</button>                        
+                        <button type="button" (click)="deleteInventory(barang.id)">Delete</button>
+                    </td>
+                    <td>
+                        {{barang.merk}}
+                    </td>
+                    <td>
+                        {{barang.jenis}}
+                    </td>
+                    <td>
+                        {{barang.jumlah}}
+                    </td>
+                    <td>
+                        {{barang.harga | currency:'Rp':'symbol':'1.0-0'}}
+                    </td>
+                    <td>
+                        {{barang.keterangan}}
+                    </td>
+                </tr>                
+            </tbody>
+        </table>
+    </ng-container>
+</app-main-nav>
